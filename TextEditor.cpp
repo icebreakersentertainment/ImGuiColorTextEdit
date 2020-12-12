@@ -118,7 +118,7 @@ TextEditor::Coordinates TextEditor::GetActualCursorCoordinates() const
 
 TextEditor::Coordinates TextEditor::SanitizeCoordinates(const Coordinates & aValue) const
 {
-	auto line = aValue.mLine;
+	auto line = std::max(aValue.mLine, 0);
 	auto column = aValue.mColumn;
 	if (line >= (int)mLines.size())
 	{
